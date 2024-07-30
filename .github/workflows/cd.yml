@@ -1,0 +1,55 @@
+name: CD
+on:
+  release:
+    types:
+      - released
+concurrency:
+  group: "stylebot"
+  cancel-in-progress: true
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.RELEASEBOT_APP_ID }}
+          private-key: ${{ secrets.RELEASEBOT_PRIVATE_KEY }}
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - run: echo "package_version=$(jq -r .version package.json)" >> $GITHUB_ENV
+      - if: ${{ github.event.release.name != env.package_version }}
+        run: 'echo "Error: Tag name does not match package.json version" && exit 1'
+      - id: nodeversion
+        run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.nodeversion.outputs.version }}
+          cache: yarn
+          registry-url: "https://registry.npmjs.org"
+          token: ${{ secrets.NPM_TOKEN }}
+      - run: |
+          echo "npmRegistries:" >> .yarnrc.yml
+          echo '  "https://registry.npmjs.org":' >> .yarnrc.yml
+          echo "    npmAlwaysAuth: true" >> .yarnrc.yml
+          echo "    npmAuthToken: ${{ secrets.NPM_TOKEN }}" >> .yarnrc.yml
+      - run: yarn install --immutable
+      - run: yarn build:hardhat
+      - run: yarn build:tsc
+      - run: yarn publish --patch --access public --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "[releasebot] Updates version post-release"
+          branch: releasebot/version-update
+          title: "[releasebot] Updates version post-release"
+          token: ${{ steps.app-token.outputs.token }}
+          body: |
+            The following files have been updated as a result of releasing version: ${{ env.package_version }}.

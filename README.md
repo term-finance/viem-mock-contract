@@ -50,7 +50,7 @@ describe("MyContract", () => {
         abi,
         inputs: [2n, 3n],
         reason: "revert reason",
-      }
+      },
       // ...
     );
 
@@ -60,7 +60,7 @@ describe("MyContract", () => {
     const result = await client.readContract(
       mockContract.address,
       "myFunction1",
-      [1, 2]
+      [1, 2],
     );
 
     // Check the result

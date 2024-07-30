@@ -1,7 +1,14 @@
-import { Abi, AbiFunction, AbiParametersToPrimitiveTypes } from "abitype";
-import { encodeFunctionData, encodeFunctionResult } from "viem";
-import hre from "hardhat";
-import { GetContractReturnType } from "@nomicfoundation/hardhat-viem/types";
+import { AbiFunction, AbiParametersToPrimitiveTypes } from "abitype";
+import {
+  encodeFunctionData,
+  encodeFunctionResult,
+  PublicClient,
+  WalletClient,
+} from "viem";
+import {
+  abi,
+  bytecode,
+} from "../artifacts/contracts/Doppelganger.sol/Doppelganger.json";
 
 // Matches viem.sh types for a call
 export type MockReadCallExpectation<T extends AbiFunction> = {
@@ -20,68 +27,108 @@ export type MockCallExpectation<T extends AbiFunction> =
   | MockReadCallExpectation<T>
   | MockRevertExpectation<T>;
 
-export const deployMock = async <A extends Abi>() => {
-  const mock = await hre.viem.deployContract("Doppelganger");
-  const mockContract = mock as typeof mock & {
-    setup: <T extends Abi>(
-      ...calls: MockCallExpectation<AbiFunction & T[number]>[] // TODO: Infer types
-    ) => Promise<void>;
-  };
+export type MockContractController = {
+  address: `0x${string}`;
+  setup: <T extends AbiFunction>(
+    ...calls: MockCallExpectation<T>[] // TODO: Infer types
+  ) => Promise<void>;
+};
+
+export const deployMock = async (
+  signer: WalletClient,
+  reader: PublicClient,
+) => {
+  if (!signer.account) {
+    throw new Error("Client must have an account set");
+  }
+  const deployTxHash = await signer.deployContract({
+    abi,
+    bytecode: bytecode as `0x${string}`,
+    account: signer.account,
+    chain: signer.chain,
+  });
+  const deployTxReceipt = await reader.waitForTransactionReceipt({
+    hash: deployTxHash,
+  });
+  const address = deployTxReceipt.contractAddress;
+  if (!address) {
+    throw new Error("Contract did not deploy correctly");
+  }
   let firstCall = true;
-  mockContract.setup = async (...calls) => {
-    for (const call of calls) {
-      switch (call.kind) {
-        case "read": {
-          const fnSigHash = encodeFunctionData({
-            abi: [call.abi as AbiFunction],
-            args: call.inputs,
-            functionName: call.abi.name,
-          });
-          const encodedOutputs = encodeFunctionResult({
-            abi: [call.abi as AbiFunction],
-            functionName: call.abi.name,
-            result: call.outputs,
-          });
-          // Use a mock function to return the expected return value
-          if (firstCall) {
-            await mockContract.write.__doppelganger__mockReturns([
-              fnSigHash,
-              encodedOutputs,
-            ]);
-            firstCall = false;
-          } else {
-            await mockContract.write.__doppelganger__queueReturn([
-              fnSigHash,
-              encodedOutputs,
-            ]);
+  const controller: MockContractController = {
+    address,
+    setup: async (...calls) => {
+      if (!signer.account) {
+        throw new Error("Client must have an account set");
+      }
+      for (const call of calls) {
+        switch (call.kind) {
+          case "read": {
+            const fnSigHash = encodeFunctionData({
+              abi: [call.abi as AbiFunction],
+              args: call.inputs,
+              functionName: call.abi.name,
+            });
+            const encodedOutputs = encodeFunctionResult({
+              abi: [call.abi as AbiFunction],
+              functionName: call.abi.name,
+              result: call.outputs,
+            });
+            // Use a mock function to return the expected return value
+            if (firstCall) {
+              await signer.writeContract({
+                address,
+                chain: signer.chain,
+                account: signer.account,
+                abi: abi,
+                functionName: "__doppelganger__mockReturns",
+                args: [fnSigHash, encodedOutputs],
+              });
+              firstCall = false;
+            } else {
+              await signer.writeContract({
+                address,
+                chain: signer.chain,
+                account: signer.account,
+                abi: abi,
+                functionName: "__doppelganger__queueReturn",
+                args: [fnSigHash, encodedOutputs],
+              });
+            }
+            break;
           }
-          break;
-        }
-        case "revert": {
-          const fnSigHash = encodeFunctionData({
-            abi: [call.abi as AbiFunction],
-            args: call.inputs,
-            functionName: call.abi.name,
-          });
-          if (firstCall) {
-            await mockContract.write.__doppelganger__mockReverts([
-              fnSigHash,
-              call.reason || "",
-            ]);
-            firstCall = false;
-          } else {
-            await mockContract.write.__doppelganger__queueRevert([
-              fnSigHash,
-              call.reason || "",
-            ]);
+          case "revert": {
+            const fnSigHash = encodeFunctionData({
+              abi: [call.abi as AbiFunction],
+              args: call.inputs,
+              functionName: call.abi.name,
+            });
+            if (firstCall) {
+              await signer.writeContract({
+                address,
+                chain: signer.chain,
+                account: signer.account,
+                abi: abi,
+                functionName: "__doppelganger__mockReverts",
+                args: [fnSigHash, call.reason || ""],
+              });
+              firstCall = false;
+            } else {
+              await signer.writeContract({
+                address,
+                chain: signer.chain,
+                account: signer.account,
+                abi: abi,
+                functionName: "__doppelganger__queueRevert",
+                args: [fnSigHash, call.reason || ""],
+              });
+            }
+            break;
           }
-          break;
         }
       }
-    }
+    },
   };
 
-  return mockContract as any as GetContractReturnType<A> & {
-    setup: typeof mockContract.setup;
-  };
+  return controller;
 };

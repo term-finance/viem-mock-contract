@@ -1,0 +1,23 @@
+name: CI
+on: [push]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - id: nodeversion
+        run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.nodeversion.outputs.version }}
+          cache: yarn
+      - run: yarn install --immutable
+      - run: yarn check:eslint || true
+      - run: yarn check:prettier || true
+      - run: yarn build:hardhat
+      - run: yarn build:tsc
+      - run: yarn test

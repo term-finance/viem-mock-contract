@@ -1,0 +1,18 @@
+node_modules
+.env
+.tool-versions
+.prettierrc
+eslint.config.mjs
+hardhat.config.ts
+
+# Hardhat files
+/cache
+/test
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+/.github
+
+/*.tgz

@@ -1,9 +1,10 @@
 {
   "name": "viem-mock-contract",
-  "version": "1.0.0",
-  "main": "dist/src/mock-contract.js",
+  "version": "0.1.0",
+  "main": "src/mock-contract.js",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
     "@nomicfoundation/hardhat-ignition": "^0.15.0",
     "@nomicfoundation/hardhat-ignition-viem": "^0.15.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
@@ -12,20 +13,30 @@
     "@nomicfoundation/hardhat-viem": "^2.0.0",
     "@types/chai": "^4.2.0",
     "@types/chai-as-promised": "^7.1.6",
+    "@types/eslint__js": "^8.42.3",
     "@types/mocha": ">=9.1.0",
     "@types/node": ">=18.0.0",
     "abitype": "^1.0.5",
     "chai": "^4.2.0",
+    "eslint": "^9.8.0",
     "hardhat": "^2.22.6",
     "hardhat-gas-reporter": "^1.0.8",
+    "prettier": "^3.3.3",
     "solidity-coverage": "^0.8.0",
     "ts-node": ">=8.0.0",
-    "typescript": "~5.0.4",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.18.0",
     "viem": "^2.7.6"
   },
   "scripts": {
-    "build": "hardhat compile",
+    "build:hardhat": "hardhat compile",
+    "build:tsc": "tsc",
+    "check:eslint": "eslint .",
+    "check:prettier": "prettier --check .",
+    "fix:eslint": "eslint --fix .",
+    "fix:prettier": "prettier --write .",
     "test": "hardhat test",
     "coverage": "hardhat coverage"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }
