@@ -24,7 +24,7 @@ export const deployMock = async <A extends Abi>() => {
   const mock = await hre.viem.deployContract("Doppelganger");
   const mockContract = mock as typeof mock & {
     setup: <T extends Abi>(
-      ...calls: MockCallExpectation<AbiFunction & T[number]>[] // TODO: Infer types
+      ...calls: MockCallExpectation<AbiFunction>[] // TODO: Infer types
     ) => Promise<void>;
   };
   let firstCall = true;

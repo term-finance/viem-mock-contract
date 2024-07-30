@@ -1,7 +1,7 @@
 {
   "name": "viem-mock-contract",
-  "version": "1.0.0",
-  "main": "dist/src/mock-contract.js",
+  "version": "0.1.0",
+  "main": "src/mock-contract.js",
   "license": "MIT",
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^0.15.0",
@@ -24,7 +24,7 @@
     "viem": "^2.7.6"
   },
   "scripts": {
-    "build": "hardhat compile",
+    "build": "hardhat compile && tsc",
     "test": "hardhat test",
     "coverage": "hardhat coverage"
   }
