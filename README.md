@@ -1,4 +1,4 @@
-# `viem-mock-contract`
+# `@term-finance/viem-mock-contract`
 
 This project adds the ability to deploy a mock contract to the blockchain using
 the `hardhat-viem` plugin for `hardhat`.
@@ -10,13 +10,13 @@ To install this project, run the following commands:
 `npm`:
 
 ```shell
-npm install --save-dev viem-mock-contract
+npm install --save-dev @term-finance/viem-mock-contract
 ```
 
 `yarn`:
 
 ```shell
-yarn add --dev viem-mock-contract
+yarn add --dev @term-finance/viem-mock-contract
 ```
 
 ## Usage
@@ -24,18 +24,20 @@ yarn add --dev viem-mock-contract
 To use this project, add the following to your `hardhat.config.js`:
 
 ```javascript
-require("viem-mock-contract");
+require("@term-finance/viem-mock-contract");
 ```
 
 Then, you can write tests that deploy a mock contract to the blockchain:
 
 ```typescript
 import hre from "hardhat";
-import { deployMock } from "viem-mock-contract";
+import { deployMock } from "@term-finance/viem-mock-contract";
 
 describe("MyContract", () => {
   it("should deploy a mock contract", async () => {
-    const mockContract = await deployMock();
+    const reader = await hre.viem.getPublicClient();
+    const [signer] = await hre.viem.getWalletClients();
+    const mockContract = await deployMock(signer, reader);
 
     // Add expectations to mock
     await deployMock.setup(
