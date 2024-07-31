@@ -41,7 +41,7 @@ jobs:
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
-      - run: yarn publish --patch --access public --non-interactive
+      - run: yarn npm publish --patch --access public --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Pull Request
