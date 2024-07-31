@@ -33,19 +33,21 @@ jobs:
           cache: yarn
           registry-url: "https://registry.npmjs.org"
           token: ${{ secrets.NPM_TOKEN }}
+          scope: "term-finance"
       - run: |
-          echo npmAuthToken: "$NODE_AUTH_TOKEN" >> .yarnrc.yml
+          cat << EOF >> .yarnrc.yml
+
+          npmScopes:
+            term-finance:
+              npmRegistryServer: https://registry.npmjs.org
+              npmAuthToken: ${{ secrets.NPM_TOKEN }}
+              npmAlwaysAuth: true
+          EOF
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
-      - run: |
-          yarn npm login
-          yarn npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn npm whoami
       - run: yarn npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn version patch
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
