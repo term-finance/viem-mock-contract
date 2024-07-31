@@ -17,8 +17,8 @@ jobs:
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
-          app-id: ${{ vars.RELEASEBOT_APP_ID }}
-          private-key: ${{ secrets.RELEASEBOT_PRIVATE_KEY }}
+          app-id: ${{ secrets.RELEASEBOT_GITHUB_APP_ID }}
+          private-key: ${{ secrets.RELEASEBOT_GITHUB_APP_KEY }}
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
