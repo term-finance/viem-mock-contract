@@ -1,5 +1,5 @@
 {
-  "name": "viem-mock-contract",
+  "name": "@term-finance/viem-mock-contract",
   "description": "Adds a simple mock contract for hardhat-viem",
   "keywords": [
     "viem",
