@@ -857,9 +857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-verify@npm:^2.0.0":
-  version: 2.0.8
-  resolution: "@nomicfoundation/hardhat-verify@npm:2.0.8"
+"@nomicfoundation/hardhat-verify@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "@nomicfoundation/hardhat-verify@npm:2.0.9"
   dependencies:
     "@ethersproject/abi": "npm:^5.1.2"
     "@ethersproject/address": "npm:^5.0.2"
@@ -871,8 +871,8 @@ __metadata:
     table: "npm:^6.8.0"
     undici: "npm:^5.14.0"
   peerDependencies:
-    hardhat: ^2.0.4
-  checksum: 10c0/1f517800b466580098b7ba4b6786d4c8018d9023b9b7dd197971a16903ff66e66256913341ae1586bf7d9184de25ac83e5e1115f18490de30a7f157a10804523
+    hardhat: "*"
+  checksum: 10c0/e70a060dbc657f77c0b55a35ab1707720b2eb7aba96f28084a37fbe82fc41ae54d89f148144af366802112feb6a09823ddd4607cd73af2c497a0035f9679b290
   languageName: node
   linkType: hard
 
@@ -1178,7 +1178,7 @@ __metadata:
     "@nomicfoundation/hardhat-ignition-viem": "npm:^0.15.0"
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.0"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:^3.0.0"
-    "@nomicfoundation/hardhat-verify": "npm:^2.0.0"
+    "@nomicfoundation/hardhat-verify": "npm:^2.0.9"
     "@nomicfoundation/hardhat-viem": "npm:^2.0.0"
     "@types/chai": "npm:^4.2.0"
     "@types/chai-as-promised": "npm:^7.1.6"
