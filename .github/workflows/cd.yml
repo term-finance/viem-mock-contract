@@ -34,10 +34,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           token: ${{ secrets.NPM_TOKEN }}
       - run: |
-          echo "npmRegistries:" >> .yarnrc.yml
-          echo '  "https://registry.npmjs.org":' >> .yarnrc.yml
-          echo "    npmAlwaysAuth: true" >> .yarnrc.yml
-          echo "    npmAuthToken: ${{ secrets.NPM_TOKEN }}" >> .yarnrc.yml
+          echo npmAuthToken: "$NODE_AUTH_TOKEN" >> .yarnrc.yml
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
