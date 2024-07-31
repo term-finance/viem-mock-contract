@@ -37,6 +37,7 @@ jobs:
       - run: |
           cat << EOF >> .yarnrc.yml
 
+          npmAuthToken: ${{ secrets.NPM_TOKEN }}
           npmScopes:
             term-finance:
               npmRegistryServer: https://registry.npmjs.org
