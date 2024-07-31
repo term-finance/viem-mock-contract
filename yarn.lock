@@ -1169,6 +1169,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@term-finance/viem-mock-contract@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@term-finance/viem-mock-contract@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.8.0"
+    "@nomicfoundation/hardhat-ignition": "npm:^0.15.0"
+    "@nomicfoundation/hardhat-ignition-viem": "npm:^0.15.0"
+    "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.0"
+    "@nomicfoundation/hardhat-toolbox-viem": "npm:^3.0.0"
+    "@nomicfoundation/hardhat-verify": "npm:^2.0.0"
+    "@nomicfoundation/hardhat-viem": "npm:^2.0.0"
+    "@types/chai": "npm:^4.2.0"
+    "@types/chai-as-promised": "npm:^7.1.6"
+    "@types/eslint__js": "npm:^8.42.3"
+    "@types/mocha": "npm:>=9.1.0"
+    "@types/node": "npm:>=18.0.0"
+    abitype: "npm:^1.0.5"
+    chai: "npm:^4.2.0"
+    eslint: "npm:^9.8.0"
+    hardhat: "npm:^2.22.6"
+    hardhat-gas-reporter: "npm:^1.0.8"
+    prettier: "npm:^3.3.3"
+    solidity-coverage: "npm:^0.8.0"
+    ts-node: "npm:>=8.0.0"
+    typescript: "npm:^5.5.4"
+    typescript-eslint: "npm:^7.18.0"
+    viem: "npm:^2.7.6"
+  languageName: unknown
+  linkType: soft
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.11
   resolution: "@tsconfig/node10@npm:1.0.11"
@@ -6030,36 +6060,6 @@ __metadata:
   checksum: 10c0/bdc36fb8095d3b41df197f5fb6f11e3a26adf4059df3213e3baa93810d8f0cc76f9a74aaefc18b73e91fe7e19154ed6f134eda6fded2e0f1c8d2272ed2d2d391
   languageName: node
   linkType: hard
-
-"viem-mock-contract@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "viem-mock-contract@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.8.0"
-    "@nomicfoundation/hardhat-ignition": "npm:^0.15.0"
-    "@nomicfoundation/hardhat-ignition-viem": "npm:^0.15.0"
-    "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.0"
-    "@nomicfoundation/hardhat-toolbox-viem": "npm:^3.0.0"
-    "@nomicfoundation/hardhat-verify": "npm:^2.0.0"
-    "@nomicfoundation/hardhat-viem": "npm:^2.0.0"
-    "@types/chai": "npm:^4.2.0"
-    "@types/chai-as-promised": "npm:^7.1.6"
-    "@types/eslint__js": "npm:^8.42.3"
-    "@types/mocha": "npm:>=9.1.0"
-    "@types/node": "npm:>=18.0.0"
-    abitype: "npm:^1.0.5"
-    chai: "npm:^4.2.0"
-    eslint: "npm:^9.8.0"
-    hardhat: "npm:^2.22.6"
-    hardhat-gas-reporter: "npm:^1.0.8"
-    prettier: "npm:^3.3.3"
-    solidity-coverage: "npm:^0.8.0"
-    ts-node: "npm:>=8.0.0"
-    typescript: "npm:^5.5.4"
-    typescript-eslint: "npm:^7.18.0"
-    viem: "npm:^2.7.6"
-  languageName: unknown
-  linkType: soft
 
 "viem@npm:^2.7.6":
   version: 2.18.4
