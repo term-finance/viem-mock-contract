@@ -38,7 +38,9 @@ jobs:
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
-      - run: yarn npm whoami
+      - run: |
+          yarn npm login
+          yarn npm whoami
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn npm publish --access public
