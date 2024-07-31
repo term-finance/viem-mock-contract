@@ -26,7 +26,7 @@ jobs:
       - if: ${{ github.event.release.name != env.package_version }}
         run: 'echo "Error: Tag name does not match package.json version" && exit 1'
       - id: nodeversion
-        run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
+        run: echo "version=$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')" >> $GITHUB_OUTPUT
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ steps.nodeversion.outputs.version }}
@@ -38,6 +38,9 @@ jobs:
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
+      - run: yarn npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
