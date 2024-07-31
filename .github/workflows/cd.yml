@@ -56,5 +56,6 @@ jobs:
           branch: releasebot/version-update
           title: "[releasebot] Updates version post-release"
           token: ${{ steps.app-token.outputs.token }}
+          base: main
           body: |
             The following files have been updated as a result of releasing version: ${{ env.package_version }}.
