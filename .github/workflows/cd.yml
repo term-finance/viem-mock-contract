@@ -46,7 +46,6 @@ jobs:
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
-      - run: yarn npm whoami
       - run: yarn npm publish --access public
       - run: yarn version patch
       - name: Create Pull Request
