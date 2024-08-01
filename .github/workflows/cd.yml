@@ -4,7 +4,7 @@ on:
     types:
       - released
 concurrency:
-  group: "stylebot"
+  group: "releasebot"
   cancel-in-progress: true
 permissions:
   id-token: write
