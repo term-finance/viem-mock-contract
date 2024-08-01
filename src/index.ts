@@ -4,4 +4,4 @@ export {
   MockCallExpectation,
   MockContractController,
   deployMock,
-} from "./mock-contract"
+} from "./mock-contract";
