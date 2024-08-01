@@ -21,10 +21,10 @@ yarn add --dev @term-finance/viem-mock-contract
 
 ## Usage
 
-To use this project, add the following to your `hardhat.config.js`:
+To use this project, import the `deployMock` function:
 
 ```javascript
-require("@term-finance/viem-mock-contract");
+import { deployMock } from "@term-finance/viem-mock-contract";
 ```
 
 Then, you can write tests that deploy a mock contract to the blockchain:
@@ -56,10 +56,8 @@ describe("MyContract", () => {
       // ...
     );
 
-    const client = await hre.viem.getPublicClient();
-
     // Call the mock contract
-    const result = await client.readContract(
+    const result = await reader.readContract(
       mockContract.address,
       "myFunction1",
       [1, 2],
@@ -70,7 +68,7 @@ describe("MyContract", () => {
 
     // Check for a revert
     try {
-      await client.readContract(mockContract.address, "myFunction2", [1, 2]);
+      await reader.readContract(mockContract.address, "myFunction2", [1, 2]);
       assert.fail("Expected revert");
     } catch (error) {
       expect(error.message).to.contain("revert reason");
