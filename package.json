@@ -8,7 +8,7 @@
     "contract"
   ],
   "version": "0.1.1",
-  "main": "src/mock-contract.js",
+  "main": "src/index.js",
   "license": "MIT",
   "homepage": "https://github.com/term-finance/viem-mock-contract",
   "bugs": {
