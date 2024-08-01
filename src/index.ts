@@ -1,5 +1,6 @@
 export {
   MockReadCallExpectation,
+  MockWriteCallExpectation,
   MockRevertExpectation,
   MockCallExpectation,
   MockContractController,
