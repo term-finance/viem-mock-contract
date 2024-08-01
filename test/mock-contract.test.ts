@@ -59,9 +59,26 @@ describe("Doppelganger", function () {
       ).to.equal(100n);
     });
 
-    it.skip("Should allow for the mocking of write calls", async function () {});
+    it("Should allow for the mocking of write calls", async function () {
+      const [signer] = await hre.viem.getWalletClients();
+      const reader = await hre.viem.getPublicClient();
 
-    it("Should allow for the mocking of reverts on read calls", async function () {
+      const mock = await deployMock(signer, reader);
+      await mock.setup<ExtractAbiFunction<typeof erc20ABI, "transfer">>({
+        kind: "write",
+        abi: erc20ABI[2],
+        inputs: [zeroAddress, 100n],
+      });
+
+      await signer.writeContract({
+        address: mock.address,
+        abi: erc20ABI,
+        functionName: "transfer",
+        args: [zeroAddress, 100n],
+      });
+    });
+
+    it("Should allow for the mocking of reverts on calls", async function () {
       const [signer] = await hre.viem.getWalletClients();
       const reader = await hre.viem.getPublicClient();
 
@@ -82,6 +99,24 @@ describe("Doppelganger", function () {
         });
       } catch (error) {
         expect(error.message).to.contain("Mock revert");
+      }
+    });
+
+    it("Should fail if the mock is not set up", async function () {
+      const [signer] = await hre.viem.getWalletClients();
+      const reader = await hre.viem.getPublicClient();
+
+      const mock = await deployMock(signer, reader);
+
+      try {
+        await reader.readContract({
+          address: mock.address,
+          abi: erc20ABI,
+          functionName: "balanceOf",
+          args: [zeroAddress],
+        });
+      } catch (error) {
+        expect(error.message).to.contain("Mock on the method is not initialized");
       }
     });
 
