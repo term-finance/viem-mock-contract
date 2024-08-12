@@ -3083,8 +3083,8 @@ __metadata:
   linkType: hard
 
 "hardhat-gas-reporter@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "hardhat-gas-reporter@npm:2.2.0"
+  version: 2.2.1
+  resolution: "hardhat-gas-reporter@npm:2.2.1"
   dependencies:
     "@ethersproject/abi": "npm:^5.7.0"
     "@ethersproject/bytes": "npm:^5.7.0"
@@ -3103,7 +3103,7 @@ __metadata:
     viem: "npm:2.7.14"
   peerDependencies:
     hardhat: ^2.16.0
-  checksum: 10c0/50081277ab219b6c9748ef4f87b5a4bffc3e7b6293029e3c54ef105ec993204745b9eb86c6488afd321a8143c03210a7664a7206603fe8d229b5af42b0b492f7
+  checksum: 10c0/b0925488981a72a2fa82e8f07cdee1ae86059c7e241a7e934cb4363603a31dc22f48d59356da598343faa0bf5b43c1a8d21ef49b9d7b828f33993d144c2a0300
   languageName: node
   linkType: hard
 
