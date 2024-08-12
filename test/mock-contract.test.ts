@@ -116,7 +116,9 @@ describe("Doppelganger", function () {
           args: [zeroAddress],
         });
       } catch (error) {
-        expect(error.message).to.contain("Mock on the method is not initialized");
+        expect(error.message).to.contain(
+          "Mock on the method is not initialized",
+        );
       }
     });
 
