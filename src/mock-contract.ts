@@ -3,7 +3,7 @@ import {
   encodeFunctionData,
   encodeFunctionResult,
   PublicClient,
-  toFunctionHash,
+  toFunctionSelector,
   WalletClient,
 } from "viem";
 import {
@@ -48,7 +48,7 @@ export const calculateFnSigHash = (
     | MockWriteCallExpectation<AbiFunction>,
 ) => {
   if (call.inputs === undefined || call.inputs === null) {
-    return toFunctionHash(call.abi);
+    return toFunctionSelector(call.abi);
   }
   return encodeFunctionData({
     abi: [call.abi as AbiFunction],

@@ -122,6 +122,27 @@ describe("Doppelganger", function () {
       }
     });
 
+    it("Should allow undefined call.inputs for read calls", async function () {
+      const [signer] = await hre.viem.getWalletClients();
+      const reader = await hre.viem.getPublicClient();
+
+      const mock = await deployMock(signer, reader);
+      await mock.setup<ExtractAbiFunction<typeof erc20ABI, "balanceOf">>({
+        kind: "read",
+        abi: erc20ABI[0],
+        outputs: [100n],
+      });
+
+      expect(
+        await reader.readContract({
+          address: mock.address,
+          abi: erc20ABI,
+          functionName: "balanceOf",
+          args: [zeroAddress],
+        }),
+      ).to.equal(100n);
+    });
+
     // TODO:
     it.skip("Should allow for the mocking of events", async function () {});
   });
