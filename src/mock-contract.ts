@@ -41,10 +41,11 @@ export type MockContractController = {
   ) => Promise<void>;
 };
 
-export const calculateFnSigHash = (call:
-  MockRevertExpectation<AbiFunction> |
-  MockReadCallExpectation<AbiFunction> |
-  MockWriteCallExpectation<AbiFunction>
+export const calculateFnSigHash = (
+  call:
+    | MockRevertExpectation<AbiFunction>
+    | MockReadCallExpectation<AbiFunction>
+    | MockWriteCallExpectation<AbiFunction>,
 ) => {
   if (call.inputs === undefined || call.inputs === null) {
     return toFunctionHash(call.abi);
