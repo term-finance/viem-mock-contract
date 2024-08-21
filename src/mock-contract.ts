@@ -3,6 +3,7 @@ import {
   encodeFunctionData,
   encodeFunctionResult,
   PublicClient,
+  toFunctionHash,
   WalletClient,
 } from "viem";
 import {
@@ -14,18 +15,18 @@ import {
 export type MockReadCallExpectation<T extends AbiFunction> = {
   kind: "read";
   abi: T;
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
   outputs: AbiParametersToPrimitiveTypes<T["outputs"]>;
 };
 export type MockWriteCallExpectation<T extends AbiFunction> = {
   kind: "write";
   abi: T;
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
 };
 export type MockRevertExpectation<T extends AbiFunction> = {
   kind: "revert";
   abi: T;
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
   reason?: string;
 };
 export type MockCallExpectation<T extends AbiFunction> =
@@ -38,6 +39,21 @@ export type MockContractController = {
   setup: <T extends AbiFunction>(
     ...calls: MockCallExpectation<T>[] // TODO: Infer types
   ) => Promise<void>;
+};
+
+export const calculateFnSigHash = (call:
+  MockRevertExpectation<AbiFunction> |
+  MockReadCallExpectation<AbiFunction> |
+  MockWriteCallExpectation<AbiFunction>
+) => {
+  if (call.inputs === undefined || call.inputs === null) {
+    return toFunctionHash(call.abi);
+  }
+  return encodeFunctionData({
+    abi: [call.abi as AbiFunction],
+    args: call.inputs,
+    functionName: call.abi.name,
+  });
 };
 
 export const deployMock = async (
@@ -70,11 +86,7 @@ export const deployMock = async (
       for (const call of calls) {
         switch (call.kind) {
           case "read": {
-            const fnSigHash = encodeFunctionData({
-              abi: [call.abi as AbiFunction],
-              args: call.inputs,
-              functionName: call.abi.name,
-            });
+            const fnSigHash = calculateFnSigHash(call);
             const encodedOutputs = encodeFunctionResult({
               abi: [call.abi as AbiFunction],
               functionName: call.abi.name,
@@ -104,11 +116,7 @@ export const deployMock = async (
             break;
           }
           case "write": {
-            const fnSigHash = encodeFunctionData({
-              abi: [call.abi as AbiFunction],
-              args: call.inputs,
-              functionName: call.abi.name,
-            });
+            const fnSigHash = calculateFnSigHash(call);
             // Use a mock function to return the expected return value
             if (firstCall) {
               await signer.writeContract({
@@ -133,11 +141,7 @@ export const deployMock = async (
             break;
           }
           case "revert": {
-            const fnSigHash = encodeFunctionData({
-              abi: [call.abi as AbiFunction],
-              args: call.inputs,
-              functionName: call.abi.name,
-            });
+            const fnSigHash = calculateFnSigHash(call);
             if (firstCall) {
               await signer.writeContract({
                 address,
