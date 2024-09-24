@@ -15,98 +15,98 @@ import { PublicClient, WalletClient } from "viem";
 
 export const doppelgangerAbi = [
   {
-    "stateMutability": "payable",
-    "type": "fallback"
+    stateMutability: "payable",
+    type: "fallback",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
       },
       {
-        "internalType": "bytes",
-        "name": "value",
-        "type": "bytes"
-      }
+        internalType: "bytes",
+        name: "value",
+        type: "bytes",
+      },
     ],
-    "name": "__doppelganger__mockReturns",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "__doppelganger__mockReturns",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
       },
       {
-        "internalType": "string",
-        "name": "reason",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "reason",
+        type: "string",
+      },
     ],
-    "name": "__doppelganger__mockReverts",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "__doppelganger__mockReverts",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
       },
       {
-        "internalType": "bytes",
-        "name": "value",
-        "type": "bytes"
-      }
+        internalType: "bytes",
+        name: "value",
+        type: "bytes",
+      },
     ],
-    "name": "__doppelganger__queueReturn",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "__doppelganger__queueReturn",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
       },
       {
-        "internalType": "string",
-        "name": "reason",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "reason",
+        type: "string",
+      },
     ],
-    "name": "__doppelganger__queueRevert",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "__doppelganger__queueRevert",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "string",
-        "name": "reason",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "reason",
+        type: "string",
+      },
     ],
-    "name": "__doppelganger__receiveReverts",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "__doppelganger__receiveReverts",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "stateMutability": "payable",
-    "type": "receive"
-  }
+    stateMutability: "payable",
+    type: "receive",
+  },
 ] as const;
 
 interface StubInterface extends Pick<Promise<void>, "then"> {
@@ -229,9 +229,7 @@ function createMock<T extends Abi>(
   mockContractInstance: MockContractController,
   // wallet: WalletClient,
 ): MockContract<T>["mock"] {
-  const functions = abi.filter(
-    (f) => f.type === "function",
-  ) as AbiFunction[];
+  const functions = abi.filter((f) => f.type === "function") as AbiFunction[];
   const mockedAbi = Object.values(functions).reduce(
     (acc, func) => {
       const stubbed = new Stub(mockContractInstance, func);
