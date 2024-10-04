@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { deployMockContract } from "../src/compat/waffle";
+import { deployMockContract } from "../src/compat/waffle.js";
 import hre from "hardhat";
 import { zeroAddress } from "viem";
 

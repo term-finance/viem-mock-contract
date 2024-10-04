@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { zeroAddress } from "viem";
-import { deployMock } from "../src/mock-contract";
+import { deployMock } from "../src/mock-contract.js";
 import hre from "hardhat";
 import { ExtractAbiFunction } from "abitype";
 

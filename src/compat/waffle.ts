@@ -10,7 +10,7 @@ import {
   deployMock,
   MockCallExpectation,
   MockContractController,
-} from "../mock-contract";
+} from "../mock-contract.js";
 import { PublicClient, WalletClient } from "viem";
 
 export const doppelgangerAbi = [
