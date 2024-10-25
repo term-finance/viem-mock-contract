@@ -119,11 +119,13 @@ export const deployMock = async (
           }
           case "write": {
             const fnSigHash = calculateFnSigHash(call);
-            const encodedOutputs = call.outputs ? encodeFunctionResult({
-              abi: [call.abi as AbiFunction],
-              functionName: call.abi.name,
-              result: call.outputs,
-            }) : "0x";
+            const encodedOutputs = call.outputs
+              ? encodeFunctionResult({
+                  abi: [call.abi as AbiFunction],
+                  functionName: call.abi.name,
+                  result: call.outputs,
+                })
+              : "0x";
             // Use a mock function to return the expected return value
             if (firstCall) {
               await signer.writeContract({
