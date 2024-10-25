@@ -146,18 +146,21 @@ class Stub<T extends AbiFunction> implements StubInterface {
     if (!this.func.outputs)
       this.err("Cannot mock return values from a void function");
 
-    const kind =
-      this.func.stateMutability === "view" ||
-      this.func.stateMutability === "pure"
-        ? "read"
-        : "write";
-
-    this.calls.push({
-      kind,
-      abi: this.func,
-      inputs: this.inputs,
-      outputs: args,
-    });
+    if (this.func.stateMutability === "pure" || this.func.stateMutability === "view") {
+      this.calls.push({
+        kind: "read",
+        abi: this.func,
+        inputs: this.inputs,
+        outputs: args,
+      });
+    } else {
+      this.calls.push({
+        kind: "write",
+        abi: this.func,
+        inputs: this.inputs,
+        outputs: args.length === 0 ? undefined : args,
+      });
+    }
 
     return this;
   }

@@ -22,6 +22,7 @@ export type MockWriteCallExpectation<T extends AbiFunction> = {
   kind: "write";
   abi: T;
   inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  outputs?: AbiParametersToPrimitiveTypes<T["outputs"]>;
 };
 export type MockRevertExpectation<T extends AbiFunction> = {
   kind: "revert";
@@ -118,6 +119,11 @@ export const deployMock = async (
           }
           case "write": {
             const fnSigHash = calculateFnSigHash(call);
+            const encodedOutputs = call.outputs ? encodeFunctionResult({
+              abi: [call.abi as AbiFunction],
+              functionName: call.abi.name,
+              result: call.outputs,
+            }) : "0x";
             // Use a mock function to return the expected return value
             if (firstCall) {
               await signer.writeContract({
@@ -126,7 +132,7 @@ export const deployMock = async (
                 account: signer.account,
                 abi: abi,
                 functionName: "__doppelganger__mockReturns",
-                args: [fnSigHash, "0x"],
+                args: [fnSigHash, encodedOutputs],
               });
               firstCall = false;
             } else {
@@ -136,7 +142,7 @@ export const deployMock = async (
                 account: signer.account,
                 abi: abi,
                 functionName: "__doppelganger__queueReturn",
-                args: [fnSigHash, "0x"],
+                args: [fnSigHash, encodedOutputs],
               });
             }
             break;
