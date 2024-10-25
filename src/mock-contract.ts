@@ -51,7 +51,7 @@ export const calculateFnSigHash = (
     return toFunctionSelector(call.abi);
   }
   return encodeFunctionData({
-    abi: [call.abi as AbiFunction],
+    abi: [call.abi],
     args: call.inputs,
     functionName: call.abi.name,
   });
@@ -150,7 +150,7 @@ export const deployMock = async (
                 account: signer.account,
                 abi: abi,
                 functionName: "__doppelganger__mockReverts",
-                args: [fnSigHash, call.reason || ""],
+                args: [fnSigHash, call.reason ?? ""],
               });
               firstCall = false;
             } else {
@@ -160,7 +160,7 @@ export const deployMock = async (
                 account: signer.account,
                 abi: abi,
                 functionName: "__doppelganger__queueRevert",
-                args: [fnSigHash, call.reason || ""],
+                args: [fnSigHash, call.reason ?? ""],
               });
             }
             break;

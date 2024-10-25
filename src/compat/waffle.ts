@@ -131,8 +131,8 @@ class Stub<T extends AbiFunction> implements StubInterface {
   argsSet = false;
 
   constructor(
-    private mockContract: MockContractController,
-    private func: T,
+    private readonly mockContract: MockContractController,
+    private readonly func: T,
   ) {}
 
   private err(reason: string): never {
@@ -146,8 +146,14 @@ class Stub<T extends AbiFunction> implements StubInterface {
     if (!this.func.outputs)
       this.err("Cannot mock return values from a void function");
 
+    const kind =
+      this.func.stateMutability === "view" ||
+      this.func.stateMutability === "pure"
+        ? "read"
+        : "write";
+
     this.calls.push({
-      kind: "read",
+      kind,
       abi: this.func,
       inputs: this.inputs,
       outputs: args,
@@ -229,7 +235,7 @@ function createMock<T extends Abi>(
   mockContractInstance: MockContractController,
   // wallet: WalletClient,
 ): MockContract<T>["mock"] {
-  const functions = abi.filter((f) => f.type === "function") as AbiFunction[];
+  const functions = abi.filter((f) => f.type === "function");
   const mockedAbi = Object.values(functions).reduce(
     (acc, func) => {
       const stubbed = new Stub(mockContractInstance, func);
