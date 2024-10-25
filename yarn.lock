@@ -5032,8 +5032,8 @@ __metadata:
   linkType: hard
 
 "solidity-coverage@npm:^0.8.0":
-  version: 0.8.12
-  resolution: "solidity-coverage@npm:0.8.12"
+  version: 0.8.13
+  resolution: "solidity-coverage@npm:0.8.13"
   dependencies:
     "@ethersproject/abi": "npm:^5.0.9"
     "@solidity-parser/parser": "npm:^0.18.0"
@@ -5058,7 +5058,7 @@ __metadata:
     hardhat: ^2.11.0
   bin:
     solidity-coverage: plugins/bin.js
-  checksum: 10c0/500de00ca5d0ff9531bcfc54040591e90bb281714c5ad810bc6aa77bb6ab696f15a141f6bcb1a47547dca68d10e717e1705741d4cf660d7dce8700fa97e6bfaf
+  checksum: 10c0/9a7312c05a347c8717367405543b5d854dd82df0f398ff1cb31d2c45d1a7756d0b3798877b86a6b6a5ae29b34f33baf90846ceeca155d5936ce3caf63720b860
   languageName: node
   linkType: hard
 
