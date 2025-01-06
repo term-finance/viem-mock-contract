@@ -675,15 +675,15 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-ignition-viem@npm:^0.15.0":
-  version: 0.15.5
-  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:0.15.5"
+  version: 0.15.9
+  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:0.15.9"
   peerDependencies:
-    "@nomicfoundation/hardhat-ignition": ^0.15.5
+    "@nomicfoundation/hardhat-ignition": ^0.15.9
     "@nomicfoundation/hardhat-viem": ^2.0.0
-    "@nomicfoundation/ignition-core": ^0.15.5
+    "@nomicfoundation/ignition-core": ^0.15.9
     hardhat: ^2.18.0
     viem: ^2.7.6
-  checksum: 10c0/21d26e37e09761fd281246834c7d8def6f99c9e823823f4e0519bfcf300021882542970cacd3c0bf75154820e56629b25718536522b5a9689566f25183f11bf4
+  checksum: 10c0/6b8eab44eca14cf1be42b2572572c8c8f77905b840c8842bc3a5b479251b10a1468945880559d8b996ab8e338e08cf413b312a8afbee6016b1696a7304dc51ac
   languageName: node
   linkType: hard
 
