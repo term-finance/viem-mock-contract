@@ -28,7 +28,7 @@
     "@nomicfoundation/hardhat-viem": "^2.0.0",
     "@types/chai": "^4.2.0",
     "@types/chai-as-promised": "^8.0.0",
-    "@types/eslint__js": "^8.42.3",
+    "@types/eslint__js": "^9.0.0",
     "@types/mocha": ">=9.1.0",
     "@types/node": ">=18.0.0",
     "abitype": "^1.0.5",
