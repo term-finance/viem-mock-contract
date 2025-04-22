@@ -94,7 +94,10 @@ export const deployMock = async (
               abi: [fnAbi],
               functionName: call.abi.name,
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              result: (fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name) ? call.outputs[0] as any : call.outputs,
+              result:
+                fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
+                  ? (call.outputs[0] as any)
+                  : call.outputs,
             });
             // Use a mock function to return the expected return value
             if (firstCall) {
@@ -127,7 +130,10 @@ export const deployMock = async (
                   abi: [fnAbi],
                   functionName: call.abi.name,
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  result: (fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name) ? call.outputs[0] as any : call.outputs,
+                  result:
+                    fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
+                      ? (call.outputs[0] as any)
+                      : call.outputs,
                 })
               : "0x";
             // Use a mock function to return the expected return value
