@@ -1148,10 +1148,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:^4.2.0":
-  version: 4.3.16
-  resolution: "@types/chai@npm:4.3.16"
-  checksum: 10c0/745d4a9be429d5d86a7ab26064610b8957fe12dd80e94dc7d0707cf3db1c889e3ffe0d73d69bb15e6d376bf4462a7a75e9d8fc1051750b5d656d6cfe459829b7
+"@types/chai@npm:*":
+  version: 5.2.1
+  resolution: "@types/chai@npm:5.2.1"
+  dependencies:
+    "@types/deep-eql": "npm:*"
+  checksum: 10c0/f8a03c9f8450b7ab8df11f658c4194be17a6316b870490d5ffaf5289a3c0c0591ed6291b2d6551e181887c3eed89d0490744b3e569d9b23cf611b05f93e775b6
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:^4.2.0":
+  version: 4.3.20
+  resolution: "@types/chai@npm:4.3.20"
+  checksum: 10c0/4601189d611752e65018f1ecadac82e94eed29f348e1d5430e5681a60b01e1ecf855d9bcc74ae43b07394751f184f6970fac2b5561fc57a1f36e93a0f5ffb6e8
+  languageName: node
+  linkType: hard
+
+"@types/deep-eql@npm:*":
+  version: 4.0.2
+  resolution: "@types/deep-eql@npm:4.0.2"
+  checksum: 10c0/bf3f811843117900d7084b9d0c852da9a044d12eb40e6de73b552598a6843c21291a8a381b0532644574beecd5e3491c5ff3a0365ab86b15d59862c025384844
   languageName: node
   linkType: hard
 
