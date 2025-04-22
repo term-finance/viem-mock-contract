@@ -89,10 +89,12 @@ export const deployMock = async (
         switch (call.kind) {
           case "read": {
             const fnSigHash = calculateFnSigHash(call);
+            const fnAbi = call.abi as AbiFunction;
             const encodedOutputs = encodeFunctionResult({
-              abi: [call.abi as AbiFunction],
+              abi: [fnAbi],
               functionName: call.abi.name,
-              result: call.outputs,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              result: (fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name) ? call.outputs[0] as any : call.outputs,
             });
             // Use a mock function to return the expected return value
             if (firstCall) {
@@ -119,11 +121,13 @@ export const deployMock = async (
           }
           case "write": {
             const fnSigHash = calculateFnSigHash(call);
+            const fnAbi = call.abi as AbiFunction;
             const encodedOutputs = call.outputs
               ? encodeFunctionResult({
-                  abi: [call.abi as AbiFunction],
+                  abi: [fnAbi],
                   functionName: call.abi.name,
-                  result: call.outputs,
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  result: (fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name) ? call.outputs[0] as any : call.outputs,
                 })
               : "0x";
             // Use a mock function to return the expected return value
