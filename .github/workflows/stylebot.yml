@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@master
       - id: nodeversion
         run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: ${{ steps.nodeversion.outputs.version }}
           cache: yarn
