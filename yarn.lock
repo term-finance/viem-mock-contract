@@ -704,13 +704,13 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-network-helpers@npm:^1.0.0":
-  version: 1.0.12
-  resolution: "@nomicfoundation/hardhat-network-helpers@npm:1.0.12"
+  version: 1.1.0
+  resolution: "@nomicfoundation/hardhat-network-helpers@npm:1.1.0"
   dependencies:
     ethereumjs-util: "npm:^7.1.4"
   peerDependencies:
-    hardhat: ^2.9.5
-  checksum: 10c0/93df80bb824fb9146c354f71637d6deee4b7ba19527eee94b4f79064ccbb8e4e45e14d8e558f6e5c2be17d64429faaef07ac8fe12ef11395c549f7b5fc540722
+    hardhat: ^2.26.0
+  checksum: 10c0/f90657993cfa09afabde69fcc1dca9256a83ea0651fe52d623f93511f0b9c3570c4f65ce183663b0a2e863df021aa1698cfecbee8b3c58cba8fa531a0abdc3f8
   languageName: node
   linkType: hard
 
