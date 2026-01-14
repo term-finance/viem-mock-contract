@@ -93,7 +93,7 @@ export const deployMock = async (
             const encodedOutputs = encodeFunctionResult({
               abi: [fnAbi],
               functionName: call.abi.name,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
               result:
                 fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
                   ? (call.outputs[0] as any)
@@ -129,7 +129,7 @@ export const deployMock = async (
               ? encodeFunctionResult({
                   abi: [fnAbi],
                   functionName: call.abi.name,
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
                   result:
                     fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
                       ? (call.outputs[0] as any)
