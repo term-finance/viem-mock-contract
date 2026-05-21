@@ -18,6 +18,10 @@
     "type": "git",
     "url": "github:term-finance/viem-mock-contract"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "peerDependencies": {
     "viem": "^2.18.7"
   },
