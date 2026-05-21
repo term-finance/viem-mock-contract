@@ -74,7 +74,8 @@ export const deployMock = async (
   const deployTxReceipt = await reader.waitForTransactionReceipt({
     hash: deployTxHash,
   });
-  const address = deployTxReceipt.contractAddress;
+  const address: `0x${string}` | null | undefined =
+    deployTxReceipt.contractAddress;
   if (!address) {
     throw new Error("Contract did not deploy correctly");
   }
@@ -93,10 +94,10 @@ export const deployMock = async (
             const encodedOutputs = encodeFunctionResult({
               abi: [fnAbi],
               functionName: call.abi.name,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               result:
                 fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
-                  ? (call.outputs[0] as any)
+                  ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    (call.outputs[0] as any)
                   : call.outputs,
             });
             // Use a mock function to return the expected return value
@@ -129,10 +130,10 @@ export const deployMock = async (
               ? encodeFunctionResult({
                   abi: [fnAbi],
                   functionName: call.abi.name,
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   result:
                     fnAbi.outputs.length === 1 && !fnAbi.outputs[0].name
-                      ? (call.outputs[0] as any)
+                      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        (call.outputs[0] as any)
                       : call.outputs,
                 })
               : "0x";
