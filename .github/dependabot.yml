@@ -9,7 +9,33 @@ updates:
     schedule:
       interval: "daily"
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
+      hardhat:
+        patterns:
+          - "hardhat"
+          - "hardhat-*"
+          - "@nomicfoundation/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "typescript-eslint"
+          - "@types/eslint__js"
+      typescript:
+        patterns:
+          - "typescript"
+          - "ts-node"
+          - "@types/*"
+        exclude-patterns:
+          - "@types/eslint__js"
+      viem:
+        patterns:
+          - "viem"
+          - "abitype"
+      prettier:
+        patterns:
+          - "prettier"
+      chai:
+        patterns:
+          - "chai"
+          - "@types/chai"
+          - "@types/chai-as-promised"
