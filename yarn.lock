@@ -685,16 +685,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-ignition-viem@npm:^0.15.16":
-  version: 0.15.16
-  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:0.15.16"
+"@nomicfoundation/hardhat-errors@npm:^3.0.11":
+  version: 3.0.12
+  resolution: "@nomicfoundation/hardhat-errors@npm:3.0.12"
+  dependencies:
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.0"
+  checksum: 10c0/ef190519b64752bccb8561e96792f3ef96b31452c37a2d338fb01162eee0ca361b41e663b5161c06ca05b2fec4f389e1574ae95d924fc5c3824fbf06b5f77998
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-ignition-viem@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:3.1.5"
+  dependencies:
+    "@nomicfoundation/hardhat-errors": "npm:^3.0.11"
   peerDependencies:
-    "@nomicfoundation/hardhat-ignition": ^0.15.16
-    "@nomicfoundation/hardhat-viem": ^2.1.0
-    "@nomicfoundation/ignition-core": ^0.15.15
-    hardhat: ^2.26.0
-    viem: ^2.7.6
-  checksum: 10c0/5eb92037084fb93f496e69d9b75043c11846b1473faec67b9c8b4cfb283d6132633a2eccffb486457c5941ba7ca6b483e07cd174be371627d0a21e50e792ba9d
+    "@nomicfoundation/hardhat-ignition": ^3.1.2
+    "@nomicfoundation/hardhat-verify": ^3.0.0
+    "@nomicfoundation/hardhat-viem": ^3.0.4
+    "@nomicfoundation/ignition-core": ^3.0.7
+    hardhat: ^3.4.0
+    viem: ^2.47.6
+  checksum: 10c0/7f375d7a9e95a84bb8aabad582ba3e1dff1e064fd941d1043a286e9e4e70340464c85d8689fde1f5c99e22dae8197e245228d378103555c794ee352dec6d4b78
   languageName: node
   linkType: hard
 
@@ -749,6 +761,21 @@ __metadata:
     typescript: ^5.0.4
     viem: ^2.7.6
   checksum: 10c0/449171e70923d1cb513500e06938f5560cd4de922740b0d87335b1c94ccaf2e07f923dfd53da1a63d8d0cccde0d0ad6bfb7264e8f4ca25bca3fadc37579c5135
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-utils@npm:^4.1.0":
+  version: 4.1.1
+  resolution: "@nomicfoundation/hardhat-utils@npm:4.1.1"
+  dependencies:
+    "@streamparser/json-node": "npm:^0.0.22"
+    env-paths: "npm:^2.2.0"
+    ethereum-cryptography: "npm:^2.2.1"
+    fast-equals: "npm:^5.4.0"
+    json-stream-stringify: "npm:^3.1.6"
+    rfdc: "npm:^1.3.1"
+    undici: "npm:^6.16.1"
+  checksum: 10c0/150bd31c5f40ede80db68ae2601a9b57b8efee3c250385f9fdd517711c6b753e629834cf52e58a2364a5f7ca972f39205c70880f3a1f67fc588aec721c10d93d
   languageName: node
   linkType: hard
 
@@ -1089,13 +1116,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@streamparser/json-node@npm:^0.0.22":
+  version: 0.0.22
+  resolution: "@streamparser/json-node@npm:0.0.22"
+  dependencies:
+    "@streamparser/json": "npm:^0.0.22"
+  checksum: 10c0/3b84fbbf93f183dd00e43db5ed994cdc23993548faf8b318fff52c45ca6413ddb03e2be99e407141a8a89673bb19a84949be97b8bb1d22a25bde5c3cdac43074
+  languageName: node
+  linkType: hard
+
+"@streamparser/json@npm:^0.0.22":
+  version: 0.0.22
+  resolution: "@streamparser/json@npm:0.0.22"
+  checksum: 10c0/4496e286d607e37552c75e1e63ed7e722392d4d91939401ec11eb63c8c7d1fb7a2cf5733f1a60dc63ad95996f12d62f5639724b2c31584bb8ace51b1f3910ccc
+  languageName: node
+  linkType: hard
+
 "@term-finance/viem-mock-contract@workspace:.":
   version: 0.0.0-use.local
   resolution: "@term-finance/viem-mock-contract@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.4"
     "@nomicfoundation/hardhat-ignition": "npm:^0.15.16"
-    "@nomicfoundation/hardhat-ignition-viem": "npm:^0.15.16"
+    "@nomicfoundation/hardhat-ignition-viem": "npm:^3.1.5"
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.1.2"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:^4.1.2"
     "@nomicfoundation/hardhat-verify": "npm:^2.1.3"
@@ -2920,6 +2963,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-equals@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "fast-equals@npm:5.4.0"
+  checksum: 10c0/4fdce3a8f814e78af7296ca4ebe82f4765074a6dfe557ee98c18f5d2958c3de59025fbff7556d65f250165ccef424d37f9952ee159400f8ebe5f2edb704ec80e
+  languageName: node
+  linkType: hard
+
 "fast-glob@npm:^3.0.3":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
@@ -3983,6 +4033,13 @@ __metadata:
   version: 3.1.4
   resolution: "json-stream-stringify@npm:3.1.4"
   checksum: 10c0/ee5653d8b7829ac11311f732dbbc73f80a93bc6893553954266f28e76f340c5f0d24993480abe7b06f5b2166d3e0766f74b7d3170b85c347aece2b3bbb867fda
+  languageName: node
+  linkType: hard
+
+"json-stream-stringify@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "json-stream-stringify@npm:3.1.6"
+  checksum: 10c0/cb45e65143f4634ebb2dc0732410a942eaf86f88a7938b2f6397f4c6b96a7ba936e74d4d17db48c9221f669153996362b2ff50fe8c7fed8a7548646f98ae1f58
   languageName: node
   linkType: hard
 
@@ -5138,6 +5195,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rfdc@npm:^1.3.1":
+  version: 1.4.1
+  resolution: "rfdc@npm:1.4.1"
+  checksum: 10c0/4614e4292356cafade0b6031527eea9bc90f2372a22c012313be1dcc69a3b90c7338158b414539be863fa95bfcb2ddcd0587be696841af4e6679d85e62c060c7
+  languageName: node
+  linkType: hard
+
 "ripemd160@npm:^2.0.0, ripemd160@npm:^2.0.1":
   version: 2.0.2
   resolution: "ripemd160@npm:2.0.2"
@@ -5947,6 +6011,13 @@ __metadata:
   dependencies:
     "@fastify/busboy": "npm:^2.0.0"
   checksum: 10c0/e4e4d631ca54ee0ad82d2e90e7798fa00a106e27e6c880687e445cc2f13b4bc87c5eba2a88c266c3eecffb18f26e227b778412da74a23acc374fca7caccec49b
+  languageName: node
+  linkType: hard
+
+"undici@npm:^6.16.1":
+  version: 6.25.0
+  resolution: "undici@npm:6.25.0"
+  checksum: 10c0/2597cc6689bdb02c210c557b1f85febbfda65becae6e6fc1061508e2f33734d25207f81cd8af56ada9956329eb3a7bd7431e87dcfeceba20ee87059b57dcf985
   languageName: node
   linkType: hard
 
