@@ -56,5 +56,5 @@
     "test": "hardhat test",
     "coverage": "hardhat coverage"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.15.0"
 }
