@@ -694,6 +694,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomicfoundation/hardhat-errors@npm:^3.0.13":
+  version: 3.0.13
+  resolution: "@nomicfoundation/hardhat-errors@npm:3.0.13"
+  dependencies:
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.2"
+  checksum: 10c0/7d90cc72c5f8de25cde5d35f7ab1dbfc5350e8d98412177c558f858226edf82fbea7eae0400c14e1398a0d25383691a77ddf5f4608a76f87c72bc44738855a67
+  languageName: node
+  linkType: hard
+
 "@nomicfoundation/hardhat-ignition-viem@npm:^3.1.5":
   version: 3.1.5
   resolution: "@nomicfoundation/hardhat-ignition-viem@npm:3.1.5"
@@ -710,21 +719,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-ignition@npm:^0.15.16":
-  version: 0.15.16
-  resolution: "@nomicfoundation/hardhat-ignition@npm:0.15.16"
+"@nomicfoundation/hardhat-ignition@npm:^3.0.0":
+  version: 3.1.6
+  resolution: "@nomicfoundation/hardhat-ignition@npm:3.1.6"
   dependencies:
-    "@nomicfoundation/ignition-core": "npm:^0.15.15"
-    "@nomicfoundation/ignition-ui": "npm:^0.15.13"
-    chalk: "npm:^4.0.0"
-    debug: "npm:^4.3.2"
-    fs-extra: "npm:^10.0.0"
+    "@nomicfoundation/hardhat-errors": "npm:^3.0.13"
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.2"
+    "@nomicfoundation/ignition-core": "npm:^3.1.6"
+    "@nomicfoundation/ignition-ui": "npm:^3.1.2"
     json5: "npm:^2.2.3"
     prompts: "npm:^2.4.2"
   peerDependencies:
-    "@nomicfoundation/hardhat-verify": ^2.1.0
-    hardhat: ^2.26.0
-  checksum: 10c0/ec941771bb3b4b6d56329109d14ad278d8f48d31bae3a5f563a006b292aee86949271fa955d790cfc7ab684b4ffb95df63f19bc2d17153875b10dd2154371b91
+    "@nomicfoundation/hardhat-verify": ^3.0.0
+    hardhat: ^3.4.0
+  checksum: 10c0/c8c17adc4901611d912058e571a68d621320208ed16355f756a3c0c6854322159d99390c5c9f3b03d3de99016317e375d02a419a3189d43307ef626c56c22e41
   languageName: node
   linkType: hard
 
@@ -779,6 +787,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomicfoundation/hardhat-utils@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "@nomicfoundation/hardhat-utils@npm:4.1.2"
+  dependencies:
+    "@streamparser/json-node": "npm:^0.0.22"
+    env-paths: "npm:^2.2.0"
+    ethereum-cryptography: "npm:^2.2.1"
+    fast-equals: "npm:^5.4.0"
+    json-stream-stringify: "npm:^3.1.6"
+    rfdc: "npm:^1.3.1"
+    undici: "npm:^6.16.1"
+  checksum: 10c0/c948b1d31805deacf24511c06f8eef78ff7b391873150b3d380620b8fe67301755cf08ab7b73a0f602daf1bb60ced6910accf88e4fa424d1c587aeec25d0fa17
+  languageName: node
+  linkType: hard
+
 "@nomicfoundation/hardhat-verify@npm:^2.1.3":
   version: 2.1.3
   resolution: "@nomicfoundation/hardhat-verify@npm:2.1.3"
@@ -811,27 +834,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/ignition-core@npm:^0.15.15":
-  version: 0.15.15
-  resolution: "@nomicfoundation/ignition-core@npm:0.15.15"
+"@nomicfoundation/ignition-core@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "@nomicfoundation/ignition-core@npm:3.1.6"
   dependencies:
     "@ethersproject/address": "npm:5.6.1"
+    "@nomicfoundation/hardhat-errors": "npm:^3.0.13"
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.2"
     "@nomicfoundation/solidity-analyzer": "npm:^0.1.1"
-    cbor: "npm:^9.0.0"
-    debug: "npm:^4.3.2"
+    cbor2: "npm:^1.9.0"
     ethers: "npm:^6.14.0"
-    fs-extra: "npm:^10.0.0"
     immer: "npm:10.0.2"
-    lodash: "npm:4.17.21"
+    lodash-es: "npm:4.17.21"
     ndjson: "npm:2.0.0"
-  checksum: 10c0/52105cfa707ffdba9ad0196070c0d7700071f6bd463221b87a4089a83908e6ee3b862f1c7591d9138704eaadae0d79d61f9c2dddef5a654df9ed49a7243d8e74
+  checksum: 10c0/5a484040f7e17f1b12f7d278e2f6ab50d8e5e26ef6be7979ac6d6f09581de9e8661454d5c3728ec082a68c6cf2ffd26413c40d6d3d83dba505c112778d9d3ce7
   languageName: node
   linkType: hard
 
-"@nomicfoundation/ignition-ui@npm:^0.15.13":
-  version: 0.15.13
-  resolution: "@nomicfoundation/ignition-ui@npm:0.15.13"
-  checksum: 10c0/1fd9f8ad772446a4bf65cd5f21688df14eeb15b53315d623ebe654f998b20ec360fafd5b663b8d5f46d3d921bc11ba75c7346162620f201be0d55b82ce893fa0
+"@nomicfoundation/ignition-ui@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@nomicfoundation/ignition-ui@npm:3.1.2"
+  checksum: 10c0/4bb802e4fae2e342ff6d5898afbfa32b38967e58793cd5a231b3329c495f6cddd48498876d79e74b54c06adf834e788101470072274c827092baaa35c6bb4e5e
   languageName: node
   linkType: hard
 
@@ -1137,7 +1160,7 @@ __metadata:
   resolution: "@term-finance/viem-mock-contract@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.4"
-    "@nomicfoundation/hardhat-ignition": "npm:^0.15.16"
+    "@nomicfoundation/hardhat-ignition": "npm:^3.0.0"
     "@nomicfoundation/hardhat-ignition-viem": "npm:^3.1.5"
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.1.2"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:^4.1.2"
@@ -2094,21 +2117,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cbor2@npm:^1.9.0":
+  version: 1.12.0
+  resolution: "cbor2@npm:1.12.0"
+  checksum: 10c0/c0d9e69e4a6176fb2d6658dcfe723dcb2732df29b2d4f11f7a7dc76ff618ea761f1f218582bf932dbe8d7fed54a9abd1bc72821a242f0bd81c8a4fdf621f0c87
+  languageName: node
+  linkType: hard
+
 "cbor@npm:^8.1.0":
   version: 8.1.0
   resolution: "cbor@npm:8.1.0"
   dependencies:
     nofilter: "npm:^3.1.0"
   checksum: 10c0/a836e2e7ea0efb1b9c4e5a4be906c57113d730cc42293a34072e0164ed110bb8ac035dc7dca2e3ebb641bd4b37e00fdbbf09c951aa864b3d4888a6ed8c6243f7
-  languageName: node
-  linkType: hard
-
-"cbor@npm:^9.0.0":
-  version: 9.0.2
-  resolution: "cbor@npm:9.0.2"
-  dependencies:
-    nofilter: "npm:^3.1.0"
-  checksum: 10c0/709d4378067e663107b3d63a02d123a7b33e28946b4c5cc40c102f2f0ba13b072a79adc4369bb87a4e743399fce45deec30463fc84d363ab7cb39192d0fe5f30
   languageName: node
   linkType: hard
 
@@ -3147,17 +3168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^10.0.0":
-  version: 10.1.0
-  resolution: "fs-extra@npm:10.1.0"
-  dependencies:
-    graceful-fs: "npm:^4.2.0"
-    jsonfile: "npm:^6.0.1"
-    universalify: "npm:^2.0.0"
-  checksum: 10c0/5f579466e7109719d162a9249abbeffe7f426eb133ea486e020b89bc6d67a741134076bf439983f2eb79276ceaf6bd7b7c1e43c3fd67fe889863e69072fb0a5e
-  languageName: node
-  linkType: hard
-
 "fs-extra@npm:^7.0.1":
   version: 7.0.1
   resolution: "fs-extra@npm:7.0.1"
@@ -4071,19 +4081,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonfile@npm:^6.0.1":
-  version: 6.1.0
-  resolution: "jsonfile@npm:6.1.0"
-  dependencies:
-    graceful-fs: "npm:^4.1.6"
-    universalify: "npm:^2.0.0"
-  dependenciesMeta:
-    graceful-fs:
-      optional: true
-  checksum: 10c0/4f95b5e8a5622b1e9e8f33c96b7ef3158122f595998114d1e7f03985649ea99cb3cd99ce1ed1831ae94c8c8543ab45ebd044207612f31a56fd08462140e46865
-  languageName: node
-  linkType: hard
-
 "jsonschema@npm:^1.2.4, jsonschema@npm:^1.4.1":
   version: 1.4.1
   resolution: "jsonschema@npm:1.4.1"
@@ -4155,6 +4152,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:4.17.21":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: 10c0/fb407355f7e6cd523a9383e76e6b455321f0f153a6c9625e21a8827d10c54c2a2341bd2ae8d034358b60e07325e1330c14c224ff582d04612a46a4f0479ff2f2
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -4180,13 +4184,6 @@ __metadata:
   version: 4.4.2
   resolution: "lodash.truncate@npm:4.4.2"
   checksum: 10c0/4e870d54e8a6c86c8687e057cec4069d2e941446ccab7f40b4d9555fa5872d917d0b6aa73bece7765500a3123f1723bcdba9ae881b679ef120bba9e1a0b0ed70
-  languageName: node
-  linkType: hard
-
-"lodash@npm:4.17.21":
-  version: 4.17.21
-  resolution: "lodash@npm:4.17.21"
-  checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
   languageName: node
   linkType: hard
 
@@ -6041,13 +6038,6 @@ __metadata:
   version: 0.1.2
   resolution: "universalify@npm:0.1.2"
   checksum: 10c0/e70e0339f6b36f34c9816f6bf9662372bd241714dc77508d231d08386d94f2c4aa1ba1318614f92015f40d45aae1b9075cd30bd490efbe39387b60a76ca3f045
-  languageName: node
-  linkType: hard
-
-"universalify@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "universalify@npm:2.0.1"
-  checksum: 10c0/73e8ee3809041ca8b818efb141801a1004e3fc0002727f1531f4de613ea281b494a40909596dae4a042a4fb6cd385af5d4db2e137b1362e0e91384b828effd3a
   languageName: node
   linkType: hard
 
