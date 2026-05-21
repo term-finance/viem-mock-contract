@@ -33,7 +33,7 @@
     "@types/chai-as-promised": "^7.1.8",
     "@types/eslint__js": "^8.42.3",
     "@types/mocha": ">=9.1.0",
-    "@types/node": ">=18.0.0",
+    "@types/node": ">=20.0.0",
     "abitype": "^1.2.4",
     "chai": "^4.5.0",
     "eslint": "^9.39.4",
