@@ -74,8 +74,12 @@ export const deployMock = async (
   const deployTxReceipt = await reader.waitForTransactionReceipt({
     hash: deployTxHash,
   });
-  const address: `0x${string}` | null | undefined =
-    deployTxReceipt.contractAddress;
+  // `contractAddress` widens to `string` under the formatted-receipt types of
+  // some viem versions; cast so MockContractController.address stays well-typed.
+  const address = deployTxReceipt.contractAddress as
+    | `0x${string}`
+    | null
+    | undefined;
   if (!address) {
     throw new Error("Contract did not deploy correctly");
   }

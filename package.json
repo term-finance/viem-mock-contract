@@ -9,6 +9,7 @@
   ],
   "version": "0.1.10",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "license": "MIT",
   "homepage": "https://github.com/term-finance/viem-mock-contract",
   "bugs": {
