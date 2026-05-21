@@ -5,6 +5,10 @@ node_modules
 eslint.config.mjs
 hardhat.config.ts
 
+# Yarn files (publishing uses the npm CLI, which would otherwise bundle these)
+.yarn
+.yarnrc.yml
+
 # Hardhat files
 /cache
 /test

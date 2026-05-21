@@ -7,7 +7,7 @@ concurrency:
   group: "releasebot"
   cancel-in-progress: true
 permissions:
-  id-token: write
+  id-token: write # Required for npm trusted publishing (OIDC)
   contents: write
   pull-requests: write
 jobs:
@@ -25,26 +25,17 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ steps.nodeversion.outputs.version }}
-          cache: yarn
           registry-url: "https://registry.npmjs.org"
-          token: ${{ secrets.NPM_TOKEN }}
-          scope: "term-finance"
-      - run: |
-          cat << EOF >> .yarnrc.yml
-
-          npmAuthToken: ${{ secrets.NPM_TOKEN }}
-          npmScopes:
-            term-finance:
-              npmRegistryServer: https://registry.npmjs.org
-              npmAuthToken: ${{ secrets.NPM_TOKEN }}
-              npmAlwaysAuth: true
-          EOF
+      # npm trusted publishing (OIDC) requires npm CLI >= 11.5.1.
+      - run: npm install --global npm@11.5.1
       - run: yarn install --immutable
       - run: yarn build:hardhat
       - run: yarn build:tsc
-      - run: yarn npm publish --access public
+      # Publishes via OIDC trusted publishing — no NPM_TOKEN. Authentication
+      # comes from the id-token: write permission above, and npm generates
+      # provenance attestations automatically.
+      - run: npm publish --access public
       - run: yarn version patch
-      - run: git restore .yarnrc.yml
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
