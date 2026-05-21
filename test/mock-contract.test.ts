@@ -1,8 +1,9 @@
 import { expect } from "chai";
+import { describe, it } from "node:test";
 import { zeroAddress } from "viem";
+import { network } from "hardhat";
 import { deployMock } from "../src/mock-contract.js";
-import hre from "hardhat";
-import { ExtractAbiFunction } from "abitype";
+import type { ExtractAbiFunction } from "abitype";
 
 // Test data
 const erc20ABI = [
@@ -35,11 +36,13 @@ const erc20ABI = [
   },
 ] as const;
 
-describe("Doppelganger", function () {
+describe("Doppelganger", async function () {
+  const { viem } = await network.create();
+
   describe("Deployment", function () {
     it("Should allow for the mocking of read calls", async function () {
-      const [signer] = await hre.viem.getWalletClients();
-      const reader = await hre.viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
+      const reader = await viem.getPublicClient();
 
       const mock = await deployMock(signer, reader);
       await mock.setup<ExtractAbiFunction<typeof erc20ABI, "balanceOf">>({
@@ -60,8 +63,8 @@ describe("Doppelganger", function () {
     });
 
     it("Should allow for the mocking of write calls", async function () {
-      const [signer] = await hre.viem.getWalletClients();
-      const reader = await hre.viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
+      const reader = await viem.getPublicClient();
 
       const mock = await deployMock(signer, reader);
       await mock.setup<ExtractAbiFunction<typeof erc20ABI, "transfer">>({
@@ -79,8 +82,8 @@ describe("Doppelganger", function () {
     });
 
     it("Should allow for the mocking of reverts on calls", async function () {
-      const [signer] = await hre.viem.getWalletClients();
-      const reader = await hre.viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
+      const reader = await viem.getPublicClient();
 
       const mock = await deployMock(signer, reader);
       await mock.setup<ExtractAbiFunction<typeof erc20ABI, "balanceOf">>({
@@ -103,8 +106,8 @@ describe("Doppelganger", function () {
     });
 
     it("Should fail if the mock is not set up", async function () {
-      const [signer] = await hre.viem.getWalletClients();
-      const reader = await hre.viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
+      const reader = await viem.getPublicClient();
 
       const mock = await deployMock(signer, reader);
 
@@ -123,8 +126,8 @@ describe("Doppelganger", function () {
     });
 
     it("Should allow undefined call.inputs for read calls", async function () {
-      const [signer] = await hre.viem.getWalletClients();
-      const reader = await hre.viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
+      const reader = await viem.getPublicClient();
 
       const mock = await deployMock(signer, reader);
       await mock.setup<ExtractAbiFunction<typeof erc20ABI, "balanceOf">>({

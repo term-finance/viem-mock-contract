@@ -6,10 +6,9 @@ import {
   toFunctionSelector,
   WalletClient,
 } from "viem";
-import {
-  abi,
-  bytecode,
-} from "../artifacts/contracts/Doppelganger.sol/Doppelganger.json";
+import DoppelgangerArtifact from "../artifacts/contracts/Doppelganger.sol/Doppelganger.json" with { type: "json" };
+
+const { abi, bytecode } = DoppelgangerArtifact;
 
 // Matches viem.sh types for a call
 export type MockReadCallExpectation<T extends AbiFunction> = {
