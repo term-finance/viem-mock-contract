@@ -1,6 +1,7 @@
 import { expect } from "chai";
+import { describe, it } from "node:test";
 import { deployMockContract } from "../src/compat/waffle.js";
-import hre from "hardhat";
+import { network } from "hardhat";
 import { zeroAddress } from "viem";
 
 const erc20ABI = [
@@ -33,11 +34,13 @@ const erc20ABI = [
   },
 ] as const;
 
-describe("waffle", function () {
+describe("waffle", async function () {
+  const { viem } = await network.create();
+
   describe("compat", function () {
     it("Should allow for the mocking of read calls", async function () {
-      const reader = await hre.viem.getPublicClient();
-      const [signer] = await hre.viem.getWalletClients();
+      const reader = await viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
       const mock = await deployMockContract<typeof erc20ABI>(
         signer,
         reader,
@@ -58,8 +61,8 @@ describe("waffle", function () {
     });
 
     it("Should allow for the mocking of write calls", async function () {
-      const reader = await hre.viem.getPublicClient();
-      const [signer] = await hre.viem.getWalletClients();
+      const reader = await viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
       const mock = await deployMockContract<typeof erc20ABI>(
         signer,
         reader,
@@ -77,8 +80,8 @@ describe("waffle", function () {
     });
 
     it("Should allow for the mocking of reverts on read calls", async function () {
-      const reader = await hre.viem.getPublicClient();
-      const [signer] = await hre.viem.getWalletClients();
+      const reader = await viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
       const mock = await deployMockContract<typeof erc20ABI>(
         signer,
         reader,
@@ -102,8 +105,8 @@ describe("waffle", function () {
     });
 
     it("Should fail if the mock is not set up", async function () {
-      const reader = await hre.viem.getPublicClient();
-      const [signer] = await hre.viem.getWalletClients();
+      const reader = await viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
       const mock = await deployMockContract<typeof erc20ABI>(
         signer,
         reader,
@@ -125,8 +128,8 @@ describe("waffle", function () {
     });
 
     it("Should allow undefined call.inputs for read calls", async function () {
-      const reader = await hre.viem.getPublicClient();
-      const [signer] = await hre.viem.getWalletClients();
+      const reader = await viem.getPublicClient();
+      const [signer] = await viem.getWalletClients();
       const mock = await deployMockContract<typeof erc20ABI>(
         signer,
         reader,
