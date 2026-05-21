@@ -9,6 +9,7 @@ export default tseslint.config(
   {
     ignores: [
       "**/*.js",
+      "**/*.d.ts",
       "node_modules/",
       "artifacts/",
       "cache/",
