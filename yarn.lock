@@ -1027,8 +1027,8 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-viem-assertions@npm:^3.0.12":
-  version: 3.0.12
-  resolution: "@nomicfoundation/hardhat-viem-assertions@npm:3.0.12"
+  version: 3.0.13
+  resolution: "@nomicfoundation/hardhat-viem-assertions@npm:3.0.13"
   dependencies:
     "@nomicfoundation/hardhat-errors": "npm:^3.0.13"
     "@nomicfoundation/hardhat-utils": "npm:^4.1.2"
@@ -1036,7 +1036,7 @@ __metadata:
     "@nomicfoundation/hardhat-viem": ^3.0.4
     hardhat: ^3.4.0
     viem: ^2.47.6
-  checksum: 10c0/4fb128d84fb331607608ee2c59863f4f54ea4459e8156866b30b6d2e0ee7d16759e2a27dde7cbd48ec9d94674ea21acefb51e44565eef27b6e922d2b829f3bff
+  checksum: 10c0/e9a83efff2368b6e57cee14264f9feacca6877d4e79cfcae253b20af61c71543f2761eed0975320c6952e15645f067711ef759a370143c7854650b708302fb73
   languageName: node
   linkType: hard
 
@@ -2435,8 +2435,8 @@ __metadata:
   linkType: hard
 
 "hardhat@npm:^3.5.0":
-  version: 3.5.0
-  resolution: "hardhat@npm:3.5.0"
+  version: 3.5.1
+  resolution: "hardhat@npm:3.5.1"
   dependencies:
     "@nomicfoundation/edr": "npm:0.12.0-next.33"
     "@nomicfoundation/hardhat-errors": "npm:^3.0.13"
@@ -2458,7 +2458,7 @@ __metadata:
     zod: "npm:^3.23.8"
   bin:
     hardhat: dist/src/cli.js
-  checksum: 10c0/2d5448e3489abcc5abced9f6d59332ed57edab28dab93f4e68f7d978dd426a89845139f5ebcefbe3ce4ec17692e2866a25815b3a1e4ca848bfe0e4b473487827
+  checksum: 10c0/4cfc7cc9ff5cf7e2cebc356bd6fe85ed3f6223ae72882b14c4c7e49ee42a30eaec55d916e1a4de4149b8f4219888c85ab442089c8c13b45a4bafa1c9dc7d0023
   languageName: node
   linkType: hard
 
