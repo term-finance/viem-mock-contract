@@ -867,6 +867,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomicfoundation/hardhat-errors@npm:^3.0.14":
+  version: 3.0.14
+  resolution: "@nomicfoundation/hardhat-errors@npm:3.0.14"
+  dependencies:
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.3"
+  checksum: 10c0/a80399c1c2fcbad1bba9a622e5a1a31fbf6b06fc3261b4bec58fd56b4c2c1ad463f83615961454d9821dd183d02d1eb21aea2011909bb70276985abcf125404e
+  languageName: node
+  linkType: hard
+
 "@nomicfoundation/hardhat-ignition-viem@npm:^3.1.5":
   version: 3.1.5
   resolution: "@nomicfoundation/hardhat-ignition-viem@npm:3.1.5"
@@ -1003,6 +1012,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomicfoundation/hardhat-utils@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "@nomicfoundation/hardhat-utils@npm:4.1.3"
+  dependencies:
+    "@streamparser/json-node": "npm:^0.0.22"
+    env-paths: "npm:^2.2.0"
+    ethereum-cryptography: "npm:^2.2.1"
+    fast-equals: "npm:^5.4.0"
+    json-stream-stringify: "npm:^3.1.6"
+    rfdc: "npm:^1.3.1"
+    undici: "npm:^6.16.1"
+  checksum: 10c0/f03d583f9633d4583c650e1dac2ea6b21e64ed8f506b47b0a9938d4b23b886323c817956d955627eb639de9b19d8e06c4fe3f48304cdfcbff12750ab532d68b5
+  languageName: node
+  linkType: hard
+
 "@nomicfoundation/hardhat-vendored@npm:^3.0.4":
   version: 3.0.4
   resolution: "@nomicfoundation/hardhat-vendored@npm:3.0.4"
@@ -1027,16 +1051,16 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-viem-assertions@npm:^3.0.12":
-  version: 3.0.12
-  resolution: "@nomicfoundation/hardhat-viem-assertions@npm:3.0.12"
+  version: 3.1.0
+  resolution: "@nomicfoundation/hardhat-viem-assertions@npm:3.1.0"
   dependencies:
-    "@nomicfoundation/hardhat-errors": "npm:^3.0.13"
-    "@nomicfoundation/hardhat-utils": "npm:^4.1.2"
+    "@nomicfoundation/hardhat-errors": "npm:^3.0.14"
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.3"
   peerDependencies:
     "@nomicfoundation/hardhat-viem": ^3.0.4
     hardhat: ^3.4.0
     viem: ^2.47.6
-  checksum: 10c0/4fb128d84fb331607608ee2c59863f4f54ea4459e8156866b30b6d2e0ee7d16759e2a27dde7cbd48ec9d94674ea21acefb51e44565eef27b6e922d2b829f3bff
+  checksum: 10c0/d7f138ea7c1c7934491df41295b3b90ef04236ee80c8f5d3146226330b17260ec7d1ce0efe5d9e496b68c5c5a35ffebd93320779a6e8517556b260095d33251d
   languageName: node
   linkType: hard
 
