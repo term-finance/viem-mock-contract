@@ -14,11 +14,6 @@ jobs:
   fix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v3
-        id: app-token
-        with:
-          app-id: ${{ secrets.STYLEBOT_GITHUB_APP_ID }}
-          private-key: ${{ secrets.STYLEBOT_GITHUB_APP_KEY }}
       - uses: actions/checkout@master
       - id: nodeversion
         run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
@@ -40,7 +35,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[stylebot] Fixes for code style"
           branch: stylebot/patch
           title: "[stylebot] Fixes for code style"
