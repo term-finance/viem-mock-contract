@@ -7,14 +7,13 @@ concurrency:
   group: "stylebot"
   cancel-in-progress: true
 permissions:
-  id-token: write
   contents: write
   pull-requests: write
 jobs:
   fix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
       - id: nodeversion
         run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
       - uses: actions/setup-node@v6
@@ -35,7 +34,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           commit-message: "[stylebot] Fixes for code style"
           branch: stylebot/patch
           title: "[stylebot] Fixes for code style"
