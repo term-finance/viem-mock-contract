@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: nodeversion
-        run: echo "::set-output name=version::$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')"
+        run: echo "version=$(grep nodejs .tool-versions | sed -e 's/[^[:space:]]*[[:space:]]*//')" >> "${GITHUB_OUTPUT}"
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ steps.nodeversion.outputs.version }}
