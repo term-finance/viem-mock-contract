@@ -849,15 +849,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-errors@npm:^3.0.11":
-  version: 3.0.12
-  resolution: "@nomicfoundation/hardhat-errors@npm:3.0.12"
-  dependencies:
-    "@nomicfoundation/hardhat-utils": "npm:^4.1.0"
-  checksum: 10c0/ef190519b64752bccb8561e96792f3ef96b31452c37a2d338fb01162eee0ca361b41e663b5161c06ca05b2fec4f389e1574ae95d924fc5c3824fbf06b5f77998
-  languageName: node
-  linkType: hard
-
 "@nomicfoundation/hardhat-errors@npm:^3.0.13":
   version: 3.0.13
   resolution: "@nomicfoundation/hardhat-errors@npm:3.0.13"
@@ -867,19 +858,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-ignition-viem@npm:^3.1.5":
-  version: 3.1.5
-  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:3.1.5"
+"@nomicfoundation/hardhat-errors@npm:^3.0.15":
+  version: 3.0.16
+  resolution: "@nomicfoundation/hardhat-errors@npm:3.0.16"
   dependencies:
-    "@nomicfoundation/hardhat-errors": "npm:^3.0.11"
+    "@nomicfoundation/hardhat-utils": "npm:^4.1.4"
+  checksum: 10c0/af08823d1a64dd3fb2aa58e67e1e24e4eed1870e4fcba84b80acc993e469b0e45ce1959294503509eb681dac3d6bc554c75dd2ea2ff0a6e6d802d4c8a0e7f1d1
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-ignition-viem@npm:^3.1.5":
+  version: 3.1.6
+  resolution: "@nomicfoundation/hardhat-ignition-viem@npm:3.1.6"
+  dependencies:
+    "@nomicfoundation/hardhat-errors": "npm:^3.0.15"
   peerDependencies:
     "@nomicfoundation/hardhat-ignition": ^3.1.2
     "@nomicfoundation/hardhat-verify": ^3.0.0
     "@nomicfoundation/hardhat-viem": ^3.0.4
     "@nomicfoundation/ignition-core": ^3.0.7
-    hardhat: ^3.4.0
+    hardhat: ^3.8.0
     viem: ^2.47.6
-  checksum: 10c0/7f375d7a9e95a84bb8aabad582ba3e1dff1e064fd941d1043a286e9e4e70340464c85d8689fde1f5c99e22dae8197e245228d378103555c794ee352dec6d4b78
+  checksum: 10c0/d6e6103cbeef080da5c4571aeae423e004a5bcc20ae0fef49d10b42e00ff446dcde4f6b1cc7427cbb81a39449566fca45c0e34c649b581c012058f0b0f6b1143
   languageName: node
   linkType: hard
 
@@ -973,21 +973,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-utils@npm:^4.1.0":
-  version: 4.1.1
-  resolution: "@nomicfoundation/hardhat-utils@npm:4.1.1"
-  dependencies:
-    "@streamparser/json-node": "npm:^0.0.22"
-    env-paths: "npm:^2.2.0"
-    ethereum-cryptography: "npm:^2.2.1"
-    fast-equals: "npm:^5.4.0"
-    json-stream-stringify: "npm:^3.1.6"
-    rfdc: "npm:^1.3.1"
-    undici: "npm:^6.16.1"
-  checksum: 10c0/150bd31c5f40ede80db68ae2601a9b57b8efee3c250385f9fdd517711c6b753e629834cf52e58a2364a5f7ca972f39205c70880f3a1f67fc588aec721c10d93d
-  languageName: node
-  linkType: hard
-
 "@nomicfoundation/hardhat-utils@npm:^4.1.2":
   version: 4.1.2
   resolution: "@nomicfoundation/hardhat-utils@npm:4.1.2"
@@ -1000,6 +985,21 @@ __metadata:
     rfdc: "npm:^1.3.1"
     undici: "npm:^6.16.1"
   checksum: 10c0/c948b1d31805deacf24511c06f8eef78ff7b391873150b3d380620b8fe67301755cf08ab7b73a0f602daf1bb60ced6910accf88e4fa424d1c587aeec25d0fa17
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-utils@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "@nomicfoundation/hardhat-utils@npm:4.1.4"
+  dependencies:
+    "@streamparser/json-node": "npm:^0.0.22"
+    env-paths: "npm:^2.2.0"
+    ethereum-cryptography: "npm:^2.2.1"
+    fast-equals: "npm:^5.4.0"
+    json-stream-stringify: "npm:^3.1.6"
+    rfdc: "npm:^1.3.1"
+    undici: "npm:^6.16.1"
+  checksum: 10c0/ac3d2570409bead1132ee158fccf999ffa90646ef9d45f43a4e3c40168f41853f9d683eda550ce8514e6680822a14b4b83e7821882fdb8a5df94db8db72e3048
   languageName: node
   linkType: hard
 
