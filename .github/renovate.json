@@ -4,6 +4,35 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "autoApprove": true
+    },
+    {
+      "groupName": "typescript",
+      "matchPackageNames": ["typescript", "ts-node", "@types/**"]
+    },
+    {
+      "groupName": "hardhat",
+      "matchPackageNames": ["hardhat", "hardhat-**", "@nomicfoundation/**"]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/**",
+        "typescript-eslint",
+        "@types/eslint__js"
+      ]
+    },
+    {
+      "groupName": "viem",
+      "matchPackageNames": ["viem", "abitype"]
+    },
+    {
+      "groupName": "prettier",
+      "matchPackageNames": ["prettier"]
+    },
+    {
+      "groupName": "chai",
+      "matchPackageNames": ["chai", "@types/chai", "@types/chai-as-promised"]
     }
   ]
 }
