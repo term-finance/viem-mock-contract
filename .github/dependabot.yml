@@ -20,13 +20,6 @@ updates:
           - "@eslint/*"
           - "typescript-eslint"
           - "@types/eslint__js"
-      typescript:
-        patterns:
-          - "typescript"
-          - "ts-node"
-          - "@types/*"
-        exclude-patterns:
-          - "@types/eslint__js"
       viem:
         patterns:
           - "viem"
@@ -39,3 +32,10 @@ updates:
           - "chai"
           - "@types/chai"
           - "@types/chai-as-promised"
+      typescript:
+        patterns:
+          - "typescript"
+          - "ts-node"
+          - "@types/*"
+        exclude-patterns:
+          - "@types/eslint__js"
