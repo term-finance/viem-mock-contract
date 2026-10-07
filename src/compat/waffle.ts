@@ -205,13 +205,9 @@ class Stub<T extends AbiFunction> implements StubInterface {
 
   async then<TResult1 = void, TResult2 = never>(
     resolve?:
-      | ((value: void) => TResult1 | PromiseLike<TResult1>)
-      | null
-      | undefined,
+      ((value: void) => TResult1 | PromiseLike<TResult1>) | null | undefined,
     reject?:
-      | ((reason: any) => TResult2 | PromiseLike<TResult2>)
-      | null
-      | undefined,
+      ((reason: any) => TResult2 | PromiseLike<TResult2>) | null | undefined,
   ): Promise<TResult1 | TResult2> {
     if (this.argsSet) {
       this.calls.push({

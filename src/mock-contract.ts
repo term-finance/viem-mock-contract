@@ -76,9 +76,7 @@ export const deployMock = async (
   // `contractAddress` widens to `string` under the formatted-receipt types of
   // some viem versions; cast so MockContractController.address stays well-typed.
   const address = deployTxReceipt.contractAddress as
-    | `0x${string}`
-    | null
-    | undefined;
+    `0x${string}` | null | undefined;
   if (!address) {
     throw new Error("Contract did not deploy correctly");
   }
